@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrap">
+
+        <h1>One-armed Bandit</h1>
+        <p>If you draw 3 of the same colors or each color is different, you win your bet multiplied by 3. In all other
+            cases you lose your bet.</p>
+
+        <section class="drawScreens">
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+
+        <section class="userInterface">
+            <input type="number" placeholder="Enter the amount">
+            <button>Spin</button>
+        </section>
+
+        <scection class="scoreBoard">
+            <p><span class="result"></span></p>
+            <p>You currently have: <span class="walletCondition">0</span> $</p>
+            <p>Number of games: <span class="numberOfGames">0</span></p>
+            <p>Won games: <span class="wonGames">0</span></p>
+            <p>Lost games: <span class="lostGames">0</span></p>
+            </section>
+            <script src="Wallet.js"></script>
+            <script src="ScoreBoard.js"></script>
+            <script src="Draw.js"></script>
+            <script src="Result.js"></script>
+            <script src="Game.js"></script>
+
+    </div>
+</body>
+
+</html>
