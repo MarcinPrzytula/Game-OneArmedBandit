@@ -33,8 +33,14 @@
     text-transform: uppercase;
     padding: 4px;
     margin-bottom: 10px;
-
+    transform: rotate(0);
+    transition: 0.4s
 }
+
+button.rotate {
+    transform: rotate(360deg)
+}
+
 
 .scoreBoard .result {
     font-weight: 700;
