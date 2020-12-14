@@ -19,7 +19,7 @@ class Game {
 
     // render(colorsDraw = ["#00fff2", "#00fff2", "#00fff2"], wallet = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, numberOfMoney = 0) {
     render({
-        colorsDraw = ["url(/img/1.PNG)", "url(/img/2.PNG)", "url(/img/3.PNG)"],
+        colorsDraw = ["url(Game-OneArmedBandit/img/1.PNG)", "url(Game-OneArmedBandit/img/2.PNG)", "url(Game-OneArmedBandit/img/3.PNG)"],
         wallet = this.wallet.getWalletValue(),
         result = "",
         stats = [0, 0, 0],
