@@ -20,6 +20,11 @@
     border: 1px solid gray;
 }
 
+.animation {
+    animation-name: colors;
+    animation-duration: 1s;
+}
+
 .userInterface input {
     height: 30px;
     width: 200px;
@@ -44,4 +49,30 @@ button.rotate {
 
 .scoreBoard .result {
     font-weight: 700
+}
+
+@keyframes colors {
+    0% {
+        background-color: red;
+    }
+
+    33% {
+        background-color: red;
+    }
+
+    34% {
+        background-color: green;
+    }
+
+    66% {
+        background-color: green;
+    }
+
+    67% {
+        background-color: blue;
+    }
+
+    67% {
+        background-color: blue;
+    }
 }
