@@ -12,6 +12,14 @@ class Game {
         this.numberOfGamesInfo = document.querySelector(".scoreBoard .numberOfGames");
         this.wonGamesInfo = document.querySelector(".scoreBoard .wonGames");
         this.lostGamesInfo = document.querySelector(".scoreBoard .lostGames");
+        this.red = document.querySelectorAll(".drawScreens .draw .red");
+        this.green = document.querySelectorAll(".drawScreens .draw .green");
+        this.blue = document.querySelectorAll(".drawScreens .draw .blue");
+
+
+        this.red.forEach(item => item.style.backgroundImage = 'url("img/1.png")');
+        this.green.forEach(item => item.style.backgroundImage = 'url("img/2.png")');
+        this.blue.forEach(item => item.style.backgroundImage = 'url("img/3.png")');
 
         this.button.addEventListener("click", this.startGame.bind(this));
         this.render()
@@ -19,7 +27,7 @@ class Game {
 
     // render(colorsDraw = ["#00fff2", "#00fff2", "#00fff2"], wallet = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, numberOfMoney = 0) {
     render({
-        colorsDraw = ["url(/img/1.PNG)", "url(/img/2.PNG)", "url(/img/3.PNG)"],
+        colorsDraw = ['url("img/1.png")', 'url("img/2.png")', 'url("img/3.png")'],
         wallet = this.wallet.getWalletValue(),
         result = "",
         stats = [0, 0, 0],

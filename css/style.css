@@ -39,18 +39,15 @@
 }
 
 .red {
-    background-image: url(/img/1.PNG);
     background-position: center;
 }
 
 .green {
-    background-image: url(/img/2.PNG);
     background-position: center;
 
 }
 
 .blue {
-    background-image: url(/img/3.PNG);
     background-position: center;
 }
 
