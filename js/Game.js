@@ -94,8 +94,6 @@ class Game {
             })
 
         }.bind(this), 2000)
-        this.input.value = "";
-
     }
 }
 
