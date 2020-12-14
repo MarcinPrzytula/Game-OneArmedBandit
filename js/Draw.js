@@ -1,6 +1,6 @@
 class Draw {
     constructor() {
-        this.options = ["red", "green", "blue"];
+        this.options = ["url(/img/1.PNG)", "url(/img/2.PNG)", "url(/img/3.PNG)"];
     }
     drawResult() {
         const colors = [];

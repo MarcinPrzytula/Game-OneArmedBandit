@@ -3,7 +3,8 @@ class Game {
         this.draw = new Draw;
         this.wallet = new Wallet(start);
         this.scoreBoard = new ScoreBoard;
-        this.drawScreens = [...document.querySelectorAll(".drawScreens div")];
+        this.drawScreens = [...document.querySelectorAll(".drawScreens .draw")];
+        this.animation = [...document.querySelectorAll(".drawScreens .draw div")]
         this.input = document.querySelector(".userInterface input");
         this.button = document.querySelector(".userInterface button");
         this.resultInfo = document.querySelector(".scoreBoard .result");
@@ -18,7 +19,7 @@ class Game {
 
     // render(colorsDraw = ["#00fff2", "#00fff2", "#00fff2"], wallet = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, numberOfMoney = 0) {
     render({
-        colorsDraw = ["#00fff2", "#00fff2", "#00fff2"],
+        colorsDraw = ["url(img/1.PNG)", "url(img/2.PNG)", "url(img/3.PNG)"],
         wallet = this.wallet.getWalletValue(),
         result = "",
         stats = [0, 0, 0],
@@ -27,7 +28,7 @@ class Game {
     } = {}) {
 
         this.drawScreens.forEach((drawScreen, i) => {
-            drawScreen.style.backgroundColor = colorsDraw[i];
+            drawScreen.style.backgroundImage = colorsDraw[i];
         });
 
         this.walletInfo.textContent = wallet;
@@ -44,24 +45,23 @@ class Game {
     }
 
     startGame() {
-        this.button.classList.toggle("rotate");
-
-        this.drawScreens.forEach((drawScreen, i) => {
-            drawScreen.classList.add("animation");
-        })
-
-        setTimeout(function () {
-            game.drawScreens.forEach((drawScreen, i) => {
-                drawScreen.classList.remove("animation");
-            });
-        }, 1000);
-
-
         const bid = Math.floor(this.input.value);
         const canPlay = this.wallet.checkCanPlay(bid);
 
         if (bid < 1) return alert("You cannot wager less than 1$");
         if (!canPlay) return alert("You don't have that much money!");
+
+        this.button.classList.toggle("rotate");
+
+        this.animation.forEach((item, i) => {
+            item.classList.add("onOff");
+        });
+        setTimeout(function () {
+            this.animation.forEach((item, i) => {
+                item.classList.remove("onOff");
+            });
+        }.bind(this), 2000)
+
 
         this.wallet.changeWallet(bid);
         const colors = this.draw.drawResult();
@@ -73,17 +73,21 @@ class Game {
         this.wallet.changeWallet(numberOfMoney, resultGame);
         this.scoreBoard.addGameToScoreBoard(resultGame, bid);
 
-        this.walletInfo.textContent = this.wallet.getWalletValue();
-        // this.render(colors, this.wallet.getWalletValue(), resultGame, this.scoreBoard.showScoreBoard(), bid, numberOfMoney){
-        this.render({
-            bid,
-            colorsDraw: colors,
-            wallet: this.wallet.getWalletValue(),
-            numberOfMoney,
-            result: resultGame,
-            stats: this.scoreBoard.showScoreBoard(),
-        })
+        setTimeout(function () {
+            this.walletInfo.textContent = this.wallet.getWalletValue();
+            // this.render(colors, this.wallet.getWalletValue(), resultGame, this.scoreBoard.showScoreBoard(), bid, numberOfMoney){
+            this.render({
+                bid,
+                colorsDraw: colors,
+                wallet: this.wallet.getWalletValue(),
+                numberOfMoney,
+                result: resultGame,
+                stats: this.scoreBoard.showScoreBoard(),
+            })
+
+        }.bind(this), 2000)
         this.input.value = "";
+
     }
 }
 
