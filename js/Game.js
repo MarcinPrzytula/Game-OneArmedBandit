@@ -17,9 +17,9 @@ class Game {
         this.blue = document.querySelectorAll(".drawScreens .draw .blue");
 
 
-        this.red.forEach(item => item.style.backgroundImage = 'url("img/1.png")');
-        this.green.forEach(item => item.style.backgroundImage = 'url("img/2.png")');
-        this.blue.forEach(item => item.style.backgroundImage = 'url("img/3.png")');
+        this.red.forEach(item => item.style.backgroundImage = 'url("img/cherry.png")');
+        this.green.forEach(item => item.style.backgroundImage = 'url("img/lemon.png")');
+        this.blue.forEach(item => item.style.backgroundImage = 'url("img/waterlemon.png")');
 
         this.button.addEventListener("click", this.startGame.bind(this));
         this.render()
@@ -27,7 +27,7 @@ class Game {
 
     // render(colorsDraw = ["#00fff2", "#00fff2", "#00fff2"], wallet = this.wallet.getWalletValue(), result = "", stats = [0, 0, 0], bid = 0, numberOfMoney = 0) {
     render({
-        colorsDraw = ['url("img/1.png")', 'url("img/2.png")', 'url("img/3.png")'],
+        colorsDraw = ['url("img/cherry.png")', 'url("img/lemon.png")', 'url("img/waterlemon.png")'],
         wallet = this.wallet.getWalletValue(),
         result = "",
         stats = [0, 0, 0],
