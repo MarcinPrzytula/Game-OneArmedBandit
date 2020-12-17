@@ -2,16 +2,16 @@ class Game {
     constructor(start) {
         this.draw = new Draw;
         this.wallet = new Wallet(start);
-        this.scoreBoard = new ScoreBoard;
+        this.stats = new Stats;
         this.drawScreens = [...document.querySelectorAll(".drawScreens .draw")];
         this.animation = [...document.querySelectorAll(".drawScreens .draw div")]
         this.input = document.querySelector(".userInterface input");
         this.button = document.querySelector(".userInterface button");
-        this.resultInfo = document.querySelector(".scoreBoard .result");
-        this.walletInfo = document.querySelector(".scoreBoard .walletCondition");
-        this.numberOfGamesInfo = document.querySelector(".scoreBoard .numberOfGames");
-        this.wonGamesInfo = document.querySelector(".scoreBoard .wonGames");
-        this.lostGamesInfo = document.querySelector(".scoreBoard .lostGames");
+        this.resultInfo = document.querySelector(".stats .result");
+        this.walletInfo = document.querySelector(".stats .walletCondition");
+        this.numberOfGamesInfo = document.querySelector(".stats .numberOfGames");
+        this.wonGamesInfo = document.querySelector(".stats .wonGames");
+        this.lostGamesInfo = document.querySelector(".stats .lostGames");
         this.red = document.querySelectorAll(".drawScreens .draw .red");
         this.green = document.querySelectorAll(".drawScreens .draw .green");
         this.blue = document.querySelectorAll(".drawScreens .draw .blue");
@@ -79,18 +79,18 @@ class Game {
 
 
         this.wallet.changeWallet(numberOfMoney, resultGame);
-        this.scoreBoard.addGameToScoreBoard(resultGame, bid);
+        this.stats.addGameToStats(resultGame, bid);
 
         setTimeout(function () {
             this.walletInfo.textContent = this.wallet.getWalletValue();
-            // this.render(colors, this.wallet.getWalletValue(), resultGame, this.scoreBoard.showScoreBoard(), bid, numberOfMoney){
+            // this.render(colors, this.wallet.getWalletValue(), resultGame, this.stats.showStats(), bid, numberOfMoney){
             this.render({
                 bid,
                 colorsDraw: colors,
                 wallet: this.wallet.getWalletValue(),
                 numberOfMoney,
                 result: resultGame,
-                stats: this.scoreBoard.showScoreBoard(),
+                stats: this.stats.showStats(),
             })
 
         }.bind(this), 2000)
